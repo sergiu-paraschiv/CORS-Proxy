@@ -12,8 +12,8 @@
 ## Setup
 
 ```
-npm install -g corsproxy
-corsproxy
+npm install -g git://github.com/sergiu-paraschiv/CORS-Proxy
+CORSPROXY_PROXY_HOST=foo.com corsproxy
 # with custom port: CORSPROXY_PORT=1234 corsproxy
 # with custom host: CORSPROXY_HOST=localhost corsproxy
 # with debug server: DEBUG=1 corsproxy
@@ -22,10 +22,11 @@ corsproxy
 ## Usage
 
 The cors proxy will start at http://localhost:1337.
-To access another domain, use the domain name (including port) as the first folder, e.g.
+The proxied domain name has to be specified with the CORSPROXY_PROXY_HOST environment variable.
 
-- http://localhost:1337/localhost:3000/sign_in
-- http://localhost:1337/my.domain.com/path/to/resource
+Then you can use it like this:
+- http://localhost:1337/sign_in
+- http://localhost:1337/path/to/resource
 - etc etc
 
 ## License

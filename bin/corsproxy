@@ -31,13 +31,14 @@ server.register({
 // proxy route
 proxy.route({
   method: '*',
-  path: '/{host}/{path*}',
+  path: '/{path*}',
   handler: {
     proxy: {
       passThrough: true,
       mapUri: function (request, callback) {
-        request.host = request.params.host
-        request.path = request.path.substr(request.params.host.length + 1)
+        var proxy_host = process.env.CORSPROXY_PROXY_HOST
+        request.host = proxy_host
+        request.path = request.path.substr(proxy_host.length + 1)
         request.headers['host'] = request.host
         var query = request.url.search ? request.url.search : ''
         console.log('proxy to http://' + request.host + request.path)

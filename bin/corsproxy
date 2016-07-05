@@ -38,7 +38,6 @@ proxy.route({
       mapUri: function (request, callback) {
         var proxy_host = process.env.CORSPROXY_PROXY_HOST
         request.host = proxy_host
-        request.path = request.path.substr(proxy_host.length + 1)
         request.headers['host'] = request.host
         var query = request.url.search ? request.url.search : ''
         console.log('proxy to http://' + request.host + request.path)

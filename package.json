@@ -1,7 +1,7 @@
 {
   "name": "corsproxy",
   "description": "standalone CORS proxy",
-  "version": "0.1",
+  "version": "1.0.0",
   "main": "./index.js",
   "author": {
     "name": "Gregor Martynus",
